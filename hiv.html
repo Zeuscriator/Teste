@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador do Sistema Imunológico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ Simulador do Sistema Imunológico</h1>
+            <p class="subtitle">Visualize como seu organismo se defende contra patógenos!</p>
+        </header>
+
+        <div class="simulation-area">
+            <div id="canvas-container">
+                <canvas id="simulationCanvas" width="800" height="500"></canvas>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <h3>🔧 Controles</h3>
+                    <button id="startBtn">▶️ Iniciar Simulação</button>
+                    <button id="resetBtn">🔄 Reiniciar</button>
+                    <button id="pauseBtn">⏸️ Pausar</button>
+                </div>
+
+                <div class="control-group">
+                    <h3>🦠 Adicionar Patógenos</h3>
+                    <button class="pathogen-btn" id="addVirusBtn">➕ Vírus</button>
+                    <button class="pathogen-btn" id="addBacteriaBtn">➕ Bactéria</button>
+                    <button class="pathogen-btn" id="addFungusBtn">➕ Fungo</button>
+                    <button class="hiv-btn" id="addHIVBtn">➕ Vírus HIV</button>
+                </div>
+
+                <div class="control-group">
+                    <h3>⚡ Reforçar Defesas</h3>
+                    <button id="addMacrophageBtn">➕ Macrófago</button>
+                    <button id="addTCellBtn">➕ Linfócito T</button>
+                    <button id="addBCellBtn">➕ Linfócito B</button>
+                    <button id="addAntibodyBtn">➕ Anticorpos</button>
+                </div>
+
+                <div class="control-group">
+                    <h3>💉 Vacina contra HIV</h3>
+                    <button class="vaccine-btn" id="vaccineBtn">💉 Aplicar Vacina</button>
+                    <div class="vaccine-status" id="vaccineStatus">
+                        Status: <span class="vaccine-inactive">Não vacinado</span>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div>🦠 Patógenos</div>
+                        <div class="stat-value" id="pathogenCount">0</div>
+                    </div>
+                    <div class="stat-item">
+                        <div>🛡️ Células de Defesa</div>
+                        <div class="stat-value" id="defenseCount">0</div>
+                    </div>
+                    <div class="stat-item">
+                        <div>❤️ Saúde</div>
+                        <div class="stat-value" id="health">100%</div>
+                    </div>
+                    <div class="stat-item">
+                        <div>💉 Imunidade</div>
+                        <div class="stat-value" id="immunityLevel">0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>🔍 Legenda e Informações</h3>
+            <div class="cell-info">
+                <div class="cell-color" style="background: #ff5252;"></div>
+                <span>Vírus - Invadem células saudáveis</span>
+            </div>
+            <div class="cell-info">
+                <div class="cell-color" style="background: #ff9800;"></div>
+                <span>Bactérias - Multiplicam-se rapidamente</span>
+            </div>
+            <div class="cell-info">
+                <div class="cell-color" style="background: #9c27b0;"></div>
+                <span>Fungos - Liberam toxinas</span>
+            </div>
+            <div class="cell-info">
+                <div class="cell-color" style="background: #8e24aa;"></div>
+                <span>HIV - Ataca linfócitos T (sistema imunológico)</span>
+            </div>
+            <div class="cell-info">
+                <div class="cell-color" style="background: #4caf50;"></div>
+                <span>Macrófagos - Fagocitam patógenos</span>
+            </div>
+            <div class="cell-info">
+                <div class="cell-color" style="background: #2196f3;"></div>
+                <span>Linfócitos T - Coordenam ataque</span>
+            </div>
+            <div class="cell-info">
+                <div class="cell-color" style="background: #ffeb3b;"></div>
+                <span>Linfócitos B - Produzem anticorpos</span>
+            </div>
+            <div class="cell-info">
+                <div class="cell-color" style="background: #00bcd4;"></div>
+                <span>Anticorpos - Neutralizam patógenos</span>
+            </div>
+            <div class="cell-info">
+                <div class="cell-color" style="background: #66bb6a;"></div>
+                <span>Anticorpos Anti-HIV - Neutralizam especificamente o HIV</span>
+            </div>
+
+            <h3 style="margin-top: 20px;">📊 Log de Eventos</h3>
+            <div class="log" id="eventLog">
+                <div class="log-entry">Sistema imunológico inicializado. Aguardando patógenos...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="simulation.js"></script>
+</body>
+</html>
